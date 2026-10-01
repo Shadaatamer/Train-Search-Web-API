@@ -1,72 +1,153 @@
-rain Search Web API
-A RESTful Train Search Web API developed as part of an Enozom technical task.
-The project is built with ASP.NET Core (.NET 8) and follows a layered architecture to keep the API, business logic, domain models, and data-access responsibilities separated.
-Overview
-The API is designed to support train/trip search functionality while demonstrating clean backend structure, dependency injection, repository/service separation, and database integration.
-Tech Stack
-- .NET 8
+# Train Search Web API
+
+A RESTful Web API developed using **ASP.NET Core .NET 8** as part of the **Enozom Technical Task**.
+
+The project follows a clean layered architecture and provides backend functionality for searching and managing train-related data.
+
+## Technical Task
+
+This project was developed as a technical assessment for **Enozom** to demonstrate backend development skills, API design, database integration, clean architecture, and code organization using ASP.NET Core.
+
+## Technologies Used
+
 - ASP.NET Core Web API
-- Entity Framework Core 8
+- .NET 8
+- C#
+- Entity Framework Core
 - MySQL
-- Pomelo Entity Framework Core MySQL Provider
 - Swagger / OpenAPI
 - Dependency Injection
-- Repository & Service Pattern
-Project Structure
-Train-Search-Web-API/
+
+## Project Architecture
+
+The solution is organized into multiple layers to maintain separation of concerns:
+
+```text
+Train-Search-Web-API
 │
-├── Controllers/                  # API controllers
-├── EnozomTask.Application/      # Application services, interfaces and use cases
-├── EnozomTask.Domain/           # Domain entities and core models
-├── EnozomTask.Infrastructure/   # Database context and repository implementations
-├── Properties/                  # Application launch settings
-├── Program.cs                   # Application configuration and DI registration
-├── EnozomTask.csproj            # Main Web API project
-└── EnozomTask.sln               # Solution file
-Architecture
-The solution separates responsibilities into the following layers:
-- API / Controllers – receives HTTP requests and returns API responses.
-- Application – contains business services and repository abstractions.
-- Domain – contains the core domain models.
-- Infrastructure – contains Entity Framework Core, MySQL access, and repository implementations.
-The application registers the trip repository and service through ASP.NET Core dependency injection.
-Getting Started
-Prerequisites
-Make sure you have installed:
+├── API
+├── Application
+├── Domain
+└── Infrastructure
+```
+
+### API Layer
+
+Responsible for:
+
+- API Controllers
+- HTTP Requests and Responses
+- Swagger configuration
+- Application startup and dependency configuration
+
+### Application Layer
+
+Contains the application logic and coordinates communication between the API and domain layers.
+
+### Domain Layer
+
+Contains the core business entities and domain models.
+
+### Infrastructure Layer
+
+Responsible for external resources such as:
+
+- Database access
+- Entity Framework Core
+- MySQL configuration
+- Repository / persistence implementation
+
+## Getting Started
+
+### Prerequisites
+
+Make sure you have the following installed:
+
 - .NET 8 SDK
 - MySQL Server
-- Visual Studio 2022, JetBrains Rider, or VS Code (optional)
-1. Clone the repository
+- Visual Studio / Visual Studio Code / JetBrains Rider
+
+## Clone the Repository
+
+```bash
 git clone https://github.com/Shadaatamer/Train-Search-Web-API.git
+```
+
+Navigate to the project directory:
+
+```bash
 cd Train-Search-Web-API
-2. Restore dependencies
-dotnet restore
-3. Configure the database
-Add a DefaultConnection connection string to your local configuration, for example in appsettings.json or using .NET user secrets.
-Example:
+```
+
+## Database Configuration
+
+Update the database connection string inside the project configuration file:
+
+```json
 {
   "ConnectionStrings": {
-    "DefaultConnection": "Server=localhost;Database=EnozomTaskDb;User=root;Password=your_password;"
+    "DefaultConnection": "server=localhost;database=TrainSearchDB;user=root;password=your_password"
   }
 }
-Do not commit real database credentials to source control.
+```
 
-4. Run the application
+Replace the database credentials with your local MySQL configuration.
+
+## Restore Dependencies
+
+Run:
+
+```bash
+dotnet restore
+```
+
+## Run the Application
+
+Use:
+
+```bash
 dotnet run
-The development profile can be accessed locally based on the URL shown in the terminal when the application starts.
-Swagger / API Testing
-Swagger is enabled in the Development environment.
-After starting the project, open the Swagger URL shown by the application, typically similar to:
+```
+
+After starting the application, the API will be available through the configured localhost URL.
+
+## Swagger
+
+Swagger is included for testing and documenting the API endpoints.
+
+After running the application, open:
+
+```text
 https://localhost:<port>/swagger
-Swagger can be used to inspect and test the available API endpoints directly from the browser.
-Main Concepts Demonstrated
-- REST API development with ASP.NET Core
-- Clean separation of concerns
-- Repository pattern
-- Service layer
-- Dependency injection
-- Entity Framework Core integration
-- MySQL database connectivity
-- Swagger/OpenAPI documentation
-Technical Task
-This repository was created as an Enozom technical assessment/task to demonstrate backend development skills using ASP.NET Core, Entity Framework Core, MySQL, and a structured application architecture.
+```
+
+Swagger allows you to:
+
+- View available API endpoints
+- Test API requests
+- Review request parameters
+- Inspect API responses
+
+## Key Concepts Demonstrated
+
+This technical task demonstrates:
+
+- RESTful API development
+- ASP.NET Core Web API
+- Clean and layered architecture
+- Entity Framework Core
+- MySQL database integration
+- Dependency Injection
+- Separation of concerns
+- API documentation using Swagger
+- Maintainable backend project structure
+
+## Repository
+
+GitHub:
+
+https://github.com/Shadaatamer/Train-Search-Web-API
+
+## Author
+
+Developed as part of the **Enozom Technical Task**.
